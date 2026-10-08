@@ -27,4 +27,8 @@ export class LoginPage extends BasePage {
         await this.submitButton.click();
         await this.waitForIdle();
     }
+
+    async goto() {
+        await super.goto('/signin');
+    }
 }
