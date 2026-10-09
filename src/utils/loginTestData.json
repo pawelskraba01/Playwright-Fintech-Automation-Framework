@@ -1,0 +1,12 @@
+[
+    {
+        "username": "Heath93",
+        "password": "s3cret",
+        "expectedToPass": true
+    },
+    {
+        "username": "invalid_user",
+        "password": "wrongPassword",
+        "expectedToPass": false
+    }
+]
