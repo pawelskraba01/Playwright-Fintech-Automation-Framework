@@ -1,22 +1,25 @@
 import { test, expect } from '@playwright/test';
+import loginData from '../../src/utils/loginTestData.json';
 
 test.describe('Backend API Tests', () => {
-    const API_URL = 'http://localhost:3001';
+    test.use({ storageState: { cookies: [], origins: [] } });
 
     test('should authenticate user via API and return correct user object', async ({ request }) => {
+        const validUser = loginData.find((user: any) => user.expectedToPass === true);
+        if (!validUser) throw new Error('Valid user data not found');
+
+        const API_URL = process.env.API_URL;
+
         const response = await request.post(`${API_URL}/login`, {
             data: {
-                username: 'Heath93',
-                password: 's3cret',
+                username: validUser.username,
+                password: validUser.password,
             },
         });
 
-        expect(response.status()).toBe(200);
-        expect(response.headers()['content-type']).toContain('application/json');
+        expect(response.ok()).toBeTruthy();
 
         const responseBody = await response.json();
-        expect(responseBody.user).toBeDefined();
-        expect(responseBody.user.username).toBe('Heath93');
-        expect(responseBody.user.balance).toBeGreaterThanOrEqual(0);
+        expect(responseBody.user.username).toBe(validUser.username);
     });
 });

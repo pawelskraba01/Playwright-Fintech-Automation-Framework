@@ -2,6 +2,7 @@ import { test, expect } from '../../src/fixtures/test.fixture';
 import loginData from '../../src/utils/loginTestData.json';
 
 test.describe('Network Interception & Mocking', () => {
+    test.use({ storageState: { cookies: [], origins: [] } });
     test('should modify backend response on the fly to simulate high balance', async ({ page, loginPage }) => {
         const validUser = loginData.find((user: any) => user.expectedToPass === true);
 

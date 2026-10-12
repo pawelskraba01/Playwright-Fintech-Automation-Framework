@@ -1,6 +1,7 @@
 import { test, expect } from '../../src/fixtures/test.fixture';
 
 test.describe('Visual Regression Testing', () => {
+    test.use({ storageState: { cookies: [], origins: [] } });
     test('login page visual layout should remain unchanged', async ({ page, loginPage }) => {
         await loginPage.goto();
 
