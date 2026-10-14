@@ -98,5 +98,5 @@ To interact with the local application instance manually, you can use the defaul
 
 ## Contact
 
-*   **LinkedIn:** [Paweł Skraba](www.linkedin.com/in/pawel-skraba)
+*   **LinkedIn:** [Paweł Skraba](https://www.linkedin.com/in/pawel-skraba)
 *   **GitHub:** [pawelskraba01](https://github.com/pawelskraba01)
